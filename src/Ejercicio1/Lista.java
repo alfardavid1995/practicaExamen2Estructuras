@@ -123,10 +123,8 @@ if (index-1 <= 0){
            caracter = '#'; 
         }else{
             while (aux.getNext() != null){
-                System.out.println("$$$$$$ recorrer before $$$$$$$$$ "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
                 if(aux.getDatico().getIndex()==index-1){
                     caracter=aux.getNext().getDatico().getDatoChar();
-                    System.out.println("###### insertar before ####### "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
                 break;
                 }
                 aux= aux.getNext();
