@@ -55,88 +55,86 @@ public class Lista {
 
     public String retornarDatos(int index) {
         String s = "";
-        if (existe(index)) {
-  
-            s=s+"-"+retornarIndex(index);
-            if (existe(index - 1)) {
-               s=s+"-"+ retornarIndexBefore(index - 1);
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe una letra en el indice anterior al indicado");
-            }
-            if (existe(index + 1)) {
-              s=s+"-"+ retornarIndexNext(index + 1);
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe una letra en el indice siguiente al indicado");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "No existe una letra en el indice indicado");
-        }
-
+//        if (existe(index)) {
+//  
+//            s=s+"-"+retornarIndex(index);
+//            if (existe(index - 1)) {
+//               s=s+"-"+ retornarIndexBefore(index - 1);
+//            } else {
+//                JOptionPane.showMessageDialog(null, "No existe una letra en el indice anterior al indicado");
+//            }
+//            if (existe(index + 1)) {
+//              s=s+"-"+ retornarIndexNext(index + 1);
+//            } else {
+//                JOptionPane.showMessageDialog(null, "No existe una letra en el indice siguiente al indicado");
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(null, "No existe una letra en el indice indicado");
+//        }
+        retornarIndexBefore(index);
+        retornarIndex(index);
+        retornarIndexNext(index);
+        System.out.print("\n\n");
+        
         return s;
     }
 
-    public char retornarIndex(int index) {
-        char c = 'o';
+    private char retornarIndex(int index) {
+        char caracter = 'o';
         Nodo aux = cabeza; //utilizo aux como indice
         //Mientras no se acabe la lista y el elemento
         //de la lista sea menor que el buscado
-        while (aux.getNext() != null && aux.getNext().getDatico().getIndex()
-                < index) {
-            aux = aux.getNext();
-            //avanzo en la lista
-        }
-        if (aux.getNext() != null && aux.getNext().getDatico().getIndex() == index) {
-            c = aux.getNext().getDatico().datoChar;
-          JOptionPane.showMessageDialog(null, "Index que buscamos:"+aux.getDatico().getDatoChar()+aux.getDatico().getIndex());
-          
-        }
-        return c;
-    }
-
-    public char retornarIndexNext(int index) {
-        char c = 'o';
-        Nodo aux = cabeza; //utilizo aux como indice
-        //Mientras no se acabe la lista y el elemento
-        //de la lista sea menor que el buscado
-        while (aux.getNext() != null && aux.getNext().getDatico().getIndex()
-                < index) {
-            aux = aux.getNext();
-            //avanzo en la lista
-        }
-        if (aux.getNext() != null && aux.getNext().getDatico().getIndex() == index) {
-            c = aux.getNext().getNext().getDatico().datoChar;
-        JOptionPane.showMessageDialog(null, "Index next que buscamos: "+aux.getDatico().getDatoChar()+aux.getDatico().getIndex());
-
-        }
-        return c;
-    }
-
-    public char retornarIndexBefore(int index) {
-        int contador = 0;
-        char c = 'o';
-        Nodo aux = cabeza; //utilizo aux como indice
-        Nodo aux2 = cabeza; //utilizo aux como indice
-        //Mientras no se acabe la lista y el elemento
-        //de la lista sea menor que el buscado
-
-        while (aux.getNext() != null && aux.getNext().getDatico().getIndex()
-                < index) {
-            aux = aux.getNext();
-
-            //avanzo en la lista
-            if (contador >= 2) {
-                aux2 = aux2.getNext();
-            } else {
-                contador += 1;
+        while (aux.getNext() != null){
+            
+            if(aux.getDatico().getIndex()==index){
+                caracter=aux.getDatico().getDatoChar();   
+                break;
             }
-
+            aux= aux.getNext();
         }
-        if (aux.getNext() != null && aux.getNext().getDatico().getIndex() == index) {
-            c = aux2.getNext().getDatico().datoChar;
-        JOptionPane.showMessageDialog(null, "Index before que buscamos: "+aux.getDatico().getDatoChar()+aux.getDatico().getIndex());
+        System.out.println("valor a retornar: "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
+        return caracter;
+    }
 
+    private char retornarIndexNext(int index) {
+        char caracter = 'o';
+        Nodo aux = cabeza; //utilizo aux como indice
+        //Mientras no se acabe la lista y el elemento
+        //de la lista sea menor que el buscado
+        while (aux.getNext() != null){
+            aux= aux.getNext();
+            if(aux.getDatico().getIndex()==index+1){
+                caracter=aux.getDatico().getDatoChar();
+                break;
+            }  
         }
-        return c;
+        System.out.println("valor a retornar Next: "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
+        return caracter;
+    }
+
+    private char retornarIndexBefore(int index) {
+        char caracter = 'o';
+        //mierda
+        Nodo aux = cabeza; //utilizo aux como indice
+        //Mientras no se acabe la lista y el elemento
+        //de la lista sea menor que el buscado
+        
+if (index-1 <= 0){
+           caracter = '#'; 
+        }else{
+            while (aux.getNext() != null){
+                System.out.println("$$$$$$ recorrer before $$$$$$$$$ "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
+                if(aux.getDatico().getIndex()==index-1){
+                    caracter=aux.getNext().getDatico().getDatoChar();
+                    System.out.println("###### insertar before ####### "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
+                break;
+                }
+                aux= aux.getNext();
+            }
+        }
+        
+        System.out.println("valor a retornar Before: "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
+        return caracter;
     }
 
 //    public void modifica (Persona p) {
@@ -209,9 +207,9 @@ public class Lista {
     @Override
     public String toString() {
         Nodo aux = cabeza;
-        String s = "Lista: ";
+        String s = "Lista:\n";
         while (aux != null) {
-            s += aux + ", ";
+            s += aux + "\n";
             aux = aux.getNext();
         }
         return s;
