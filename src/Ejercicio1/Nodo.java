@@ -1,32 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Ejercicio1;
 
-/**
- *
- * @author joseriveratencio
- */
+
 public class Nodo {
-    private Persona dato;
+    private Dato datico;
     private Nodo next;
+    
     
     @Override
     public String toString(){
-        return "Nodo{"+"dato="+dato+'}';
+        return "Nodo{"+"dato="+datico+'}';
+    }
+
+    public Nodo(Dato datico) {
+        this.datico = datico;
+      
     }
     
-    public Nodo(Persona dato){
-        this.dato=dato;
+    
+
+    public Dato getDatico() {
+        return datico;
     }
 
-    public Persona getDato() {
-        return dato;
-    }
-
-    public void setDato(Persona dato) {
-        this.dato = dato;
+    public void setDatico(Dato datico) {
+        this.datico = datico;
     }
 
     public Nodo getNext() {
@@ -36,4 +34,6 @@ public class Nodo {
     public void setNext(Nodo next) {
         this.next = next;
     }
+    
+   
 }
