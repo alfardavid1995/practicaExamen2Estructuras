@@ -92,7 +92,7 @@ public class Lista {
             }
             aux= aux.getNext();
         }
-        System.out.println("valor actual a retornar: "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
+        System.out.println("valor a retornar actual: "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
         return caracter;
     }
 
