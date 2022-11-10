@@ -1,4 +1,4 @@
-package practicaexamen2estructuras;
+package Ejercicio1;
 
 
 public class PracticaExamen2Estructuras {

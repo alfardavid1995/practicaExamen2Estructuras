@@ -1,4 +1,6 @@
-package practicaexamen2estructuras;
+package Ejercicio2;
+
+import Ejercicio1.*;
 
 public class Lista {
     private Nodo cabeza;
