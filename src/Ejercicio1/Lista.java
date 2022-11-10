@@ -92,7 +92,8 @@ public class Lista {
             }
             aux= aux.getNext();
         }
-        System.out.println("valor a retornar actual: "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
+        System.out.println("valor a retornar Actual: "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
+        System.out.println("char valor Actual: "+ caracter);
         return caracter;
     }
 
@@ -109,20 +110,26 @@ public class Lista {
             }  
         }
         System.out.println("valor a retornar Next: "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
+        System.out.println("char valor Next: "+ caracter);
         return caracter;
     }
 
     private char retornarIndexBefore(int index) {
         char caracter = 'o';
+        int contador = 0;
         //mierda
         Nodo aux = cabeza; //utilizo aux como indice
+        Nodo aux2 = cabeza;
         //Mientras no se acabe la lista y el elemento
         //de la lista sea menor que el buscado
         
-if (index-1 <= 0){
+if (index<= 0){
            caracter = '#'; 
         }else{
             while (aux.getNext() != null){
+                if(contador>0){
+                    aux2=aux.getNext();
+                }
                 if(aux.getDatico().getIndex()==index-1){
                     caracter=aux.getNext().getDatico().getDatoChar();
                 break;
@@ -132,6 +139,7 @@ if (index-1 <= 0){
         }
         
         System.out.println("valor a retornar Before: "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
+        System.out.println("char valor Before: "+ caracter);
         return caracter;
     }
 
