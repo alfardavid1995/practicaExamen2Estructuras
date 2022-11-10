@@ -3,23 +3,24 @@ package Ejercicio2;
 import Ejercicio1.*;
 
 public class Nodo {
-    private Casa dato;
+    private Persona dato;
     private Nodo next;
+    private Nodo back;
     
     @Override
     public String toString(){
         return "Nodo{"+"dato="+dato+'}';
     }
     
-    public Nodo(Casa dato){
+    public Nodo(Persona dato){
         this.dato=dato;
     }
 
-    public Casa getDato() {
+    public Persona getDato() {
         return dato;
     }
 
-    public void setDato(Casa dato) {
+    public void setDato(Persona dato) {
         this.dato = dato;
     }
 
@@ -29,5 +30,13 @@ public class Nodo {
 
     public void setNext(Nodo next) {
         this.next = next;
+    }
+
+    public Nodo getBack() {
+        return back;
+    }
+
+    public void setBack(Nodo back) {
+        this.back = back;
     }
 }
