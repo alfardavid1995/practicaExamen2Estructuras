@@ -8,23 +8,17 @@ public class PracticaExamen2Estructuras {
 
         //String palabra = JOptionPane.showInputDialog("Digite una palabra");
         
-        String palabra = JOptionPane.showInputDialog("Escriba una palabra");
-        //crear una lista  
-        Lista lista = new Lista();
-        //mandar un string para ser partido 
+        String palabra = JOptionPane.showInputDialog("Escriba una palabra");//escribe la palabra 
+        Lista lista = new Lista();//crea la lista
+        insertarEnLaLista(palabra,lista);//insertar palabra a la lista
+        JOptionPane.showMessageDialog(null,lista.toString());//muestra toda la lista
+        int index = Integer.parseInt(JOptionPane.showInputDialog("Escriba el indice que quiere ver"));//escribimos el indice que queremos ver
+        lista.retornarDatos(index);//mandamos el indice 
         
         
-        insertarEnLaLista(palabra,lista);//inserta lista
-        System.out.println(lista.toString());//muestra toda la lista
-        testing(palabra, lista);
+        //testing(palabra, lista); // esto solo se usa para comprobar todas las posiciones
         
-         
-        
-        
-         //int index = Integer.parseInt(JOptionPane.showInputDialog("Digite un el indice que desea consultar"));
 
-         
-         
          
          
     }
@@ -40,7 +34,6 @@ public class PracticaExamen2Estructuras {
         for (int i = 0; i < palabra.length(); i++) {
             char c = palabra.charAt(i);
             lista.inserta(c);
-
         }
         return lista;
     }
