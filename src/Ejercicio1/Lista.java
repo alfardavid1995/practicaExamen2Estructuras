@@ -71,16 +71,17 @@ public class Lista {
 //        } else {
 //            JOptionPane.showMessageDialog(null, "No existe una letra en el indice indicado");
 //        }
-        retornarIndexBefore(index);
-        retornarIndex(index);
-        retornarIndexNext(index);
+        char char1= retornarIndexBefore(index);
+        char char2= retornarIndex(index);
+        char char3= retornarIndexNext(index);
+        System.out.print("char1= "+char1+" char2= "+char2+" char3= "+char3);
         System.out.print("\n\n");
         
         return s;
     }
 
     private char retornarIndex(int index) {
-        char caracter = 'o';
+        char caracter = '#';
         Nodo aux = cabeza; //utilizo aux como indice
         //Mientras no se acabe la lista y el elemento
         //de la lista sea menor que el buscado
@@ -92,13 +93,14 @@ public class Lista {
             }
             aux= aux.getNext();
         }
-        System.out.println("valor a retornar Actual: "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
-        System.out.println("char valor Actual: "+ caracter);
+        //System.out.println("valor a retornar Actual: "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
+        caracter= aux.getDatico().getDatoChar();
+        //System.out.println("char valor Actual: "+ caracter);
         return caracter;
     }
 
     private char retornarIndexNext(int index) {
-        char caracter = 'o';
+        char caracter = '#';
         Nodo aux = cabeza; //utilizo aux como indice
         //Mientras no se acabe la lista y el elemento
         //de la lista sea menor que el buscado
@@ -109,37 +111,35 @@ public class Lista {
                 break;
             }  
         }
-        System.out.println("valor a retornar Next: "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
-        System.out.println("char valor Next: "+ caracter);
+        //System.out.println("valor a retornar Next: "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
+        //System.out.println("char valor Next: "+ caracter);
         return caracter;
     }
 
     private char retornarIndexBefore(int index) {
-        char caracter = 'o';
-        int contador = 0;
+        char caracter = '#';
         //mierda
         Nodo aux = cabeza; //utilizo aux como indice
-        Nodo aux2 = cabeza;
         //Mientras no se acabe la lista y el elemento
         //de la lista sea menor que el buscado
         
-if (index<= 0){
-           caracter = '#'; 
-        }else{
             while (aux.getNext() != null){
-                if(contador>0){
-                    aux2=aux.getNext();
-                }
+                
                 if(aux.getDatico().getIndex()==index-1){
                     caracter=aux.getNext().getDatico().getDatoChar();
                 break;
                 }
                 aux= aux.getNext();
             }
+        if (index<= 0){
+           caracter = '#'; 
+        }else{
+            caracter= aux.getDatico().getDatoChar();
         }
         
-        System.out.println("valor a retornar Before: "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
-        System.out.println("char valor Before: "+ caracter);
+        
+        //System.out.println("valor a retornar Before: "+aux.getDatico().getDatoChar()+" "+ aux.getDatico().getIndex());
+        //System.out.println("char valor Before: "+ caracter);
         return caracter;
     }
 

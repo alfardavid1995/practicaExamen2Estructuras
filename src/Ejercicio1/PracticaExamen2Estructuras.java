@@ -8,7 +8,7 @@ public class PracticaExamen2Estructuras {
 
         //String palabra = JOptionPane.showInputDialog("Digite una palabra");
         
-        String palabra = "caleidoscopio";
+        String palabra = "computadora";
         //crear una lista  
         Lista lista = new Lista();
         //mandar un string para ser partido 
