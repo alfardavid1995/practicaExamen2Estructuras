@@ -74,8 +74,10 @@ public class Lista {
         char char1= retornarIndexBefore(index);
         char char2= retornarIndex(index);
         char char3= retornarIndexNext(index);
-        JOptionPane.showMessageDialog(null, "before= "+char1+" actual= "+char2+" next= "+char3);
+        s="before= "+char1+" actual= "+char2+" next= "+char3;
         System.out.print("\n\n");
+        
+        //JOptionPane.showMessageDialog();
         
         return s;
     }
