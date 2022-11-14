@@ -33,7 +33,7 @@ public static ListaCircularDoble listaCircularDoble =  new ListaCircularDoble ()
     }
     
     public static void  insertarpersona(Persona persona){
-            listaCircularDoble.insertaTavoModificado(persona);
+            listaCircularDoble.metodoAlemodificadoEnlaceBack(persona);
 
     }
     
