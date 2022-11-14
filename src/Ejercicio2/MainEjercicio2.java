@@ -19,13 +19,13 @@ public static ListaCircularDoble listaCircularDoble =  new ListaCircularDoble ()
 
         
         insertarpersona (new Persona(20, "Mengano"));
-        insertarpersona (new Persona(14, "Sutano"));
         insertarpersona (new Persona(25, "Perensejo"));
         insertarpersona (new Persona(23, "Fulano"));
         insertarpersona (new Persona(24, "Pedro el escamoso"));
         insertarpersona (new Persona(8, "Betty la fea"));
         insertarpersona (new Persona(30, "Sheldon"));
         insertarpersona (new Persona(3, "Bob Esponja"));
+        insertarpersona (new Persona(14, "Sutano"));
         
 
         
@@ -33,7 +33,7 @@ public static ListaCircularDoble listaCircularDoble =  new ListaCircularDoble ()
     }
     
     public static void  insertarpersona(Persona persona){
-            listaCircularDoble.metodoAlemodificadoEnlaceBack(persona);
+            listaCircularDoble.listaCircularDobleNoOrdenada(persona);
 
     }
     
